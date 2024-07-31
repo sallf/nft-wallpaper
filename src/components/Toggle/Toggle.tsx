@@ -17,7 +17,7 @@ export const Toggle = (props: Props) => {
   //  RENDER
   // ---------------------
   return (
-    <div className="inline-flex h-10 rounded-full border border-brand-clay bg-brand-steel">
+    <div className="flex h-10 rounded-full border border-brand-clay bg-brand-steel md:inline-flex">
       {labels.map((label) => (
         <ToggleBtn
           key={label}
