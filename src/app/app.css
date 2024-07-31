@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Brand colors */
+@layer base {
+  :root {
+    --color-brand-white: 255 255 255;
+    --color-brand-midnight: 12 10 29;
+    --color-brand-smokey: 111 109 138;
+    --color-brand-lavender: 134 130 177;
+    --color-brand-clay: 54 52 75;
+    --color-brand-steel: 31 29 47;
+    --color-brand-pink: 255 0 168;
+    --color-brand-cyan: 0 224 255;
+    --color-brand-purple: 111 76 255;
+    --color-brand-indigo: 67 46 153;
+  }
+}
