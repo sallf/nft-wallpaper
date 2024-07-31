@@ -29,23 +29,33 @@ export const Item = (props: Props) => {
   // ---------------------
   return (
     <div
-      className={`flex rounded-lg border border-brand-clay bg-brand-steel transition-all duration-500 ${isActive ? 'z-10' : 'border-opacity-0 bg-opacity-0'}`}
+      className={`relative ${isActive ? 'z-10' : ''} ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0`}
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
     >
       <div
-        className={`${sizes[activeLabel]} relative flex-shrink-0 flex-grow-0 overflow-hidden rounded-md transition-all duration-1000 ${isActive ? 'scale-95' : 'scale-100'}`}
+        className={`relative flex rounded-lg border border-brand-clay bg-brand-clay transition-all duration-1000 ${isActive ? 'border-opacity-100 bg-opacity-100' : 'border-opacity-0 bg-opacity-0'}`}
       >
-        <Image
-          src={wallpaper.src}
-          alt={wallpaper.title}
-          fill
-          style={{ objectFit: 'cover' }}
-          onClick={() => setIsActive((p) => !p)}
-        />
-      </div>
-      <div className="p-4">
-        <Meta wallpaper={wallpaper} />
+        <div
+          className={`${sizes[activeLabel]} ${isActive ? 'p-4' : 'p-0'} relative flex-shrink-0 flex-grow-0 transition-all duration-1000`}
+        >
+          <div className="relative h-full w-full overflow-hidden rounded-md">
+            <Image
+              src={wallpaper.src}
+              alt={wallpaper.title}
+              fill
+              style={{ objectFit: 'cover' }}
+              onClick={() => setIsActive((p) => !p)}
+            />
+          </div>
+        </div>
+        <div
+          className={`w-[300px] flex-shrink-0 flex-grow-0 transition-opacity duration-1000 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <div className="h-full p-4">
+            <Meta wallpaper={wallpaper} />
+          </div>
+        </div>
       </div>
     </div>
   )

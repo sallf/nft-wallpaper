@@ -15,7 +15,7 @@ export const Meta = (props: Props) => {
   //  RENDER
   // ---------------------
   return (
-    <div className="flex h-full w-[250px] flex-col justify-between">
+    <div className="flex h-full flex-col justify-between">
       <div>
         <div className="flex flex-col gap-2">
           <p className="text-caption-lg text-brand-lavender">
