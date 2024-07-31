@@ -53,7 +53,7 @@ export const Item = (props: Props) => {
       tl.current.to(metaContainer, {
         display: 'block',
         opacity: 1,
-        duration: 1,
+        duration: 0.5,
       })
     }
   }, [wrapper, metaContainer])
@@ -78,16 +78,16 @@ export const Item = (props: Props) => {
   // ---------------------
   return (
     <div
-      className={`relative z-0 ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0`}
+      className={`relative z-0 ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0 transition-all duration-500`}
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
       ref={setWrapper}
     >
       <div
-        className={`relative flex rounded-lg border border-brand-clay bg-brand-clay transition-all duration-1000 ${isActive ? 'border-opacity-100 bg-opacity-100' : 'border-opacity-0 bg-opacity-0'}`}
+        className={`relative flex rounded-lg border border-brand-clay bg-brand-steel transition-all duration-500 ${isActive ? 'border-opacity-100 bg-opacity-100' : 'border-opacity-0 bg-opacity-0'}`}
       >
         <div
-          className={`${sizes[activeLabel]} ${isActive ? 'p-4' : 'p-0'} relative flex-shrink-0 flex-grow-0 transition-all duration-1000`}
+          className={`${sizes[activeLabel]} ${isActive ? 'md:p-2' : 'p-0'} relative flex-shrink-0 flex-grow-0 transition-all duration-500`}
         >
           <div className="relative h-full w-full overflow-hidden rounded-md">
             <Image
@@ -100,11 +100,11 @@ export const Item = (props: Props) => {
           </div>
         </div>
         <div
-          className={`hidden w-[300px] flex-shrink-0 flex-grow-0 opacity-0`}
+          className={`absolute inset-0 hidden flex-shrink-0 flex-grow-0 rounded-md bg-brand-steel opacity-0 md:relative md:w-[300px]`}
           ref={setMetaContainer}
         >
-          <div className="h-full p-4 pl-0">
-            <Meta wallpaper={wallpaper} />
+          <div className="h-full p-4 md:pl-2">
+            <Meta wallpaper={wallpaper} activeLabel={activeLabel} />
           </div>
         </div>
       </div>
