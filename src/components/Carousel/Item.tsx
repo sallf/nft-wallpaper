@@ -1,7 +1,8 @@
 import { Labels, Wallpaper } from '@/utils/types'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Meta } from './Meta'
+import { gsap } from 'gsap'
 
 interface Props {
   wallpaper: Wallpaper
@@ -20,18 +21,67 @@ export const Item = (props: Props) => {
   const { wallpaper, activeLabel } = props
 
   // --------------------- ===
+  //  REFS
+  // ---------------------
+  const tl = useRef<gsap.core.Timeline | null>(null)
+
+  // --------------------- ===
   //  STATE
   // ---------------------
   const [isActive, setIsActive] = useState(false)
+  // Storing refs in state ensures that they are available
+  const [metaContainer, setMetaContainer] = useState<HTMLDivElement | null>(
+    null,
+  )
+  const [wrapper, setWrapper] = useState<HTMLDivElement | null>(null)
+
+  // --------------------- ===
+  //  EFFECTS
+  // ---------------------
+  useEffect(() => {
+    // Using a GSAP timeline so we can set display: none after animation
+    // back to opacity 0. Otherwise, the element will still be interactive.
+    if (wrapper && metaContainer) {
+      tl.current = gsap.timeline({
+        paused: true,
+        onReverseComplete: () => {
+          gsap.set(wrapper, {
+            zIndex: 0,
+          })
+        },
+      })
+      tl.current.to(metaContainer, {
+        display: 'block',
+        opacity: 1,
+        duration: 1,
+      })
+    }
+  }, [wrapper, metaContainer])
+
+  useEffect(() => {
+    if (!tl.current) return
+    if (isActive) {
+      gsap.set(wrapper, {
+        zIndex: 2,
+      })
+      tl.current.play()
+    } else if (tl.current.progress() > 0) {
+      gsap.set(wrapper, {
+        zIndex: 1,
+      })
+      tl.current.reverse()
+    }
+  }, [isActive, wrapper])
 
   // --------------------- ===
   //  RENDER
   // ---------------------
   return (
     <div
-      className={`relative ${isActive ? 'z-10' : ''} ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0`}
+      className={`relative z-0 ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0`}
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
+      ref={setWrapper}
     >
       <div
         className={`relative flex rounded-lg border border-brand-clay bg-brand-clay transition-all duration-1000 ${isActive ? 'border-opacity-100 bg-opacity-100' : 'border-opacity-0 bg-opacity-0'}`}
@@ -50,7 +100,8 @@ export const Item = (props: Props) => {
           </div>
         </div>
         <div
-          className={`w-[300px] flex-shrink-0 flex-grow-0 transition-opacity duration-1000 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+          className={`hidden w-[300px] flex-shrink-0 flex-grow-0 opacity-0`}
+          ref={setMetaContainer}
         >
           <div className="h-full p-4 pl-0">
             <Meta wallpaper={wallpaper} />
