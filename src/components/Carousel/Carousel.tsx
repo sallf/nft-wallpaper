@@ -16,7 +16,7 @@ export const Carousel = (props: Props) => {
   //  RENDER
   // ---------------------
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="mt-6 flex w-full gap-6 overflow-x-auto">
       {wallpapers.map((wallpaper, i) => (
         <Item key={i} wallpaper={wallpaper} activeLabel={activeLabel} />
       ))}

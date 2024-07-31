@@ -21,12 +21,14 @@ export const Item = (props: Props) => {
   //  RENDER
   // ---------------------
   return (
-    <div className={`${sizes[activeLabel]}`}>
+    <div
+      className={`${sizes[activeLabel]} relative flex-shrink-0 flex-grow-0 transition-all duration-1000`}
+    >
       <Image
         src={wallpaper.src}
         alt={wallpaper.title}
-        width={260}
-        height={260}
+        fill
+        style={{ objectFit: 'cover' }}
       />
     </div>
   )
