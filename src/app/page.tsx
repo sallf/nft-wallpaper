@@ -1,7 +1,19 @@
+'use client'
+
 import { Banner } from '@/components/Banner/Banner'
 import { Header } from '@/components/Header/Header'
+import { Toggle } from '@/components/Toggle/Toggle'
+import { useState } from 'react'
 
 export default function Home() {
+  // --------------------- ===
+  //  STATE
+  // ---------------------
+  const [activeLabel, setActiveLabel] = useState('Phone')
+
+  // --------------------- ===
+  //  RENDER
+  // ---------------------
   return (
     <main className="min-h-screen bg-brand-midnight text-brand-white">
       <Header />
@@ -14,6 +26,13 @@ export default function Home() {
           <p className="text-brand-smokey">
             Grab the NFT you like for your phone wallpaper
           </p>
+          <div>
+            <Toggle
+              labels={['Phone', 'Watch']}
+              activeLabel={activeLabel}
+              setActiveLabel={setActiveLabel}
+            />
+          </div>
         </div>
       </div>
     </main>
