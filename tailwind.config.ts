@@ -23,32 +23,90 @@ const config: Config = {
         },
       },
       fontSize: {
-        'display-lg': ['64px', '72px'],
-        'display-md': ['48px', '64px'],
-        'display-sm': ['40px', '48px'],
-        'title-lg': ['32px', '40px'],
-        'title-md': ['28px', '36px'],
-        'title-sm': ['24px', '32px'],
-        'body-lg': ['24px', '32px'],
-        'body-md': ['20px', '28px'],
-        'body-sm': ['16px', '24px'],
-        'caption-lg': ['14px', '20px'],
-        'caption-md': ['12px', '16px'],
-        'caption-sm': ['10px', '12px'],
-      },
-      fontWeight: {
-        'display-lg': 'bold',
-        'display-md': 'bold',
-        'display-sm': 'bold',
-        'title-lg': 'bold',
-        'title-md': 'bold',
-        'title-sm': 'bold',
-        'body-lg': 'normal',
-        'body-md': 'normal',
-        'body-sm': 'normal',
-        'caption-lg': 'normal',
-        'caption-md': 'normal',
-        'caption-sm': 'normal',
+        'display-lg': [
+          '64px',
+          {
+            lineHeight: '72px',
+            fontWeight: 'bold',
+          },
+        ],
+        'display-md': [
+          '48px',
+          {
+            lineHeight: '64px',
+            fontWeight: 'bold',
+          },
+        ],
+        'display-sm': [
+          '40px',
+          {
+            lineHeight: '48px',
+            fontWeight: 'bold',
+          },
+        ],
+        'title-lg': [
+          '32px',
+          {
+            lineHeight: '40px',
+            fontWeight: 'bold',
+          },
+        ],
+        'title-md': [
+          '28px',
+          {
+            lineHeight: '36px',
+            fontWeight: 'bold',
+          },
+        ],
+        'title-sm': [
+          '24px',
+          {
+            lineHeight: '32px',
+            fontWeight: 'bold',
+          },
+        ],
+        'body-lg': [
+          '24px',
+          {
+            lineHeight: '32px',
+            fontWeight: 'normal',
+          },
+        ],
+        'body-md': [
+          '20px',
+          {
+            lineHeight: '28px',
+            fontWeight: 'normal',
+          },
+        ],
+        'body-sm': [
+          '16px',
+          {
+            lineHeight: '24px',
+            fontWeight: 'normal',
+          },
+        ],
+        'caption-lg': [
+          '14px',
+          {
+            lineHeight: '20px',
+            fontWeight: 'normal',
+          },
+        ],
+        'caption-md': [
+          '12px',
+          {
+            lineHeight: '16px',
+            fontWeight: 'normal',
+          },
+        ],
+        'caption-sm': [
+          '10px',
+          {
+            lineHeight: '12px',
+            fontWeight: 'normal',
+          },
+        ],
       },
     },
   },
