@@ -1,10 +1,10 @@
+import { Labels } from '@/utils/types'
 import { ToggleBtn } from './ToggleBtn'
 
 interface Props {
-  labels: [string, string]
+  labels: Labels[]
   activeLabel: string
-  // set state
-  setActiveLabel: (label: string) => void
+  setActiveLabel: (label: Labels) => void
 }
 
 export const Toggle = (props: Props) => {

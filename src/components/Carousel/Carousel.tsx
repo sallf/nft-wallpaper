@@ -1,15 +1,24 @@
+import { Labels } from '@/utils/types'
+import { Item } from './Item'
 import { wallpapers } from './wallpapers'
 
-interface Props {}
+interface Props {
+  activeLabel: Labels
+}
 
-export const Carousel = () => {
+export const Carousel = (props: Props) => {
+  // --------------------- ===
+  //  PROPS
+  // ---------------------
+  const { activeLabel } = props
+
   // --------------------- ===
   //  RENDER
   // ---------------------
   return (
-    <div>
+    <div className="w-full overflow-x-auto">
       {wallpapers.map((wallpaper, i) => (
-        <div key={i} />
+        <Item key={i} wallpaper={wallpaper} activeLabel={activeLabel} />
       ))}
     </div>
   )

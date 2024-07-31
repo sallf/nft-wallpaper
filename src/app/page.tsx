@@ -1,16 +1,17 @@
 'use client'
 
 import { Banner } from '@/components/Banner/Banner'
+import { Carousel } from '@/components/Carousel/Carousel'
 import { Header } from '@/components/Header/Header'
 import { Toggle } from '@/components/Toggle/Toggle'
-import Image from 'next/image'
+import { Labels } from '@/utils/types'
 import { useState } from 'react'
 
 export default function Home() {
   // --------------------- ===
   //  STATE
   // ---------------------
-  const [activeLabel, setActiveLabel] = useState('Phone')
+  const [activeLabel, setActiveLabel] = useState<Labels>('Phone')
 
   // --------------------- ===
   //  RENDER
@@ -29,13 +30,13 @@ export default function Home() {
           </p>
           <div>
             <Toggle
-              labels={['Phone', 'Watch']}
+              labels={['Phone', 'Watch'] as Labels[]}
               activeLabel={activeLabel}
               setActiveLabel={setActiveLabel}
             />
           </div>
-          <Image src="/1.jpg" alt="" width={375} height={812} />
         </div>
+        <Carousel activeLabel={activeLabel} />
       </div>
     </main>
   )

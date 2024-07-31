@@ -1,4 +1,6 @@
-export const wallpapers = [
+import { Wallpaper } from '@/utils/types'
+
+export const wallpapers: Wallpaper[] = [
   {
     title: 'White Scales',
     qty: '345',
