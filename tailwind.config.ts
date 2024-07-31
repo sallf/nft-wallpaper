@@ -2,10 +2,10 @@ import type { Config } from 'tailwindcss'
 
 // Add opacity options
 const withOpacity = (variableName: string) =>
-  `rgb(var(${variableName}), / <alpha-value>)`
+  `rgb(var(${variableName}) / <alpha-value>)`
 
 const config: Config = {
-  content: ['./src/app/**/*.{ts,tsx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
