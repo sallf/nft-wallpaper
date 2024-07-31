@@ -52,7 +52,7 @@ export const Item = (props: Props) => {
         <div
           className={`w-[300px] flex-shrink-0 flex-grow-0 transition-opacity duration-1000 ${isActive ? 'opacity-100' : 'opacity-0'}`}
         >
-          <div className="h-full p-4">
+          <div className="h-full p-4 pl-0">
             <Meta wallpaper={wallpaper} />
           </div>
         </div>
