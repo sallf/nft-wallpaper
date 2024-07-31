@@ -8,7 +8,7 @@ interface Props extends ComponentProps<'button'> {
 }
 
 const sizes: Record<Sizes, string> = {
-  md: 'h8',
+  md: 'h-8',
   lg: 'h-10',
 }
 
@@ -16,7 +16,7 @@ export const Btn = (props: Props) => {
   // --------------------- ===
   //  PROPS
   // ---------------------
-  const { children, size = 'md', ...rest } = props
+  const { children, size = 'lg', ...rest } = props
 
   // --------------------- ===
   //  RENDER

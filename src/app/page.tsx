@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-brand-midnight text-brand-white">
       <Header />
-      <div className="container mx-auto mt-12">
+      <div className="container mx-auto mt-12 p-4 md:p-8">
         <div className="flex w-full flex-col gap-6 md:w-3/4">
           <div>
             <Banner>Introducing NFT Wallpapers</Banner>
