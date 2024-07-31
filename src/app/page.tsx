@@ -3,6 +3,7 @@
 import { Banner } from '@/components/Banner/Banner'
 import { Header } from '@/components/Header/Header'
 import { Toggle } from '@/components/Toggle/Toggle'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
               setActiveLabel={setActiveLabel}
             />
           </div>
+          <Image src="/1.jpg" alt="" width={375} height={812} />
         </div>
       </div>
     </main>
