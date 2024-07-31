@@ -12,8 +12,10 @@ export const Banner = (props: Props) => {
   //  RENDER
   // ---------------------
   return (
-    <div className="bg-gradient-to-r from-brand-pink to-brand-indigo p-px">
-      <p className="bg-brand-midnight px-4 py-2 text-body-sm">{children}</p>
+    <div className="inline-block rounded-full bg-gradient-to-r from-brand-pink to-brand-cyan p-px">
+      <p className="rounded-full bg-brand-midnight px-4 py-2 text-body-sm">
+        {children}
+      </p>
     </div>
   )
 }
