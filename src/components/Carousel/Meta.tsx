@@ -1,5 +1,7 @@
 import { Labels, Wallpaper } from '@/utils/types'
 import { Btn } from '../Btn/Btn'
+import { IconBtn } from '../IconBtn/IconBtn'
+import copyIcon from '@images/copy-icon.svg'
 
 interface Props {
   wallpaper: Wallpaper
@@ -42,8 +44,20 @@ export const Meta = (props: Props) => {
           </p>
         </div>
       </div>
-      <div className="flex w-full flex-col">
-        <Btn>Download</Btn>
+      <div className="flex w-full gap-2">
+        <div className="hidden md:block">
+          <IconBtn
+            icon={copyIcon}
+            label="Copy"
+            onClick={() => {
+              const url = new URL(wallpaper.src, window.location.href)
+              navigator.clipboard.writeText(url.href)
+            }}
+          />
+        </div>
+        <div className="flex w-full flex-col">
+          <Btn>Download</Btn>
+        </div>
       </div>
     </div>
   )
