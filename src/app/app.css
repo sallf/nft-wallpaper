@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Brand colors */
+@layer base {
+  :root {
+    --color-brand-white: 255 255 255; /* #ffffff */
+    --color-brand-midnight: 12 10 29; /* #0c0a1d */
+    --color-brand-smokey: 111 109 138; /* #6f6d8a */
+    --color-brand-lavender: 134 130 177; /* #8682b1 */
+    --color-brand-clay: 54 52 75; /* #36344b */
+    --color-brand-steel: 31 29 47; /* #1f1d2f */
+    --color-brand-pink: 255 0 168; /* #ff00a8 */
+    --color-brand-cyan: 0 224 255; /* #00e0ff */
+    --color-brand-purple: 111 76 255; /* #6f4cff */
+    --color-brand-indigo: 67 46 153; /* #432e99 */
+  }
+}
