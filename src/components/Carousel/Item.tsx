@@ -84,7 +84,7 @@ export const Item = (props: Props) => {
       ref={setWrapper}
     >
       <div
-        className={`relative flex rounded-lg border border-brand-clay bg-brand-steel transition-all duration-500 ${isActive ? 'border-opacity-100 bg-opacity-100' : 'border-opacity-0 bg-opacity-0'}`}
+        className={`relative flex rounded-lg border-brand-clay bg-brand-steel transition-all duration-500 md:border ${isActive ? 'border-opacity-100 bg-opacity-100' : 'border-opacity-0 bg-opacity-0'}`}
       >
         <div
           className={`${sizes[activeLabel]} ${isActive ? 'md:p-2' : 'p-0'} relative flex-shrink-0 flex-grow-0 transition-all duration-500`}
