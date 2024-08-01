@@ -79,8 +79,12 @@ export const Item = (props: Props) => {
   return (
     <div
       className={`relative z-0 ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0 transition-all duration-500`}
-      onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(false)}
+      onMouseEnter={() => {
+        setIsActive(true)
+      }}
+      onMouseLeave={() => {
+        setIsActive(false)
+      }}
       ref={setWrapper}
     >
       <div
@@ -95,7 +99,6 @@ export const Item = (props: Props) => {
               alt={wallpaper.title}
               fill
               style={{ objectFit: 'cover' }}
-              onClick={() => setIsActive((p) => !p)}
             />
           </div>
         </div>
