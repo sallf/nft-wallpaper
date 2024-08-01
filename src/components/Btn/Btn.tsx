@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, ReactNode } from 'react'
 
 type Sizes = 'md' | 'lg'
 
 interface Props extends ComponentProps<'button'> {
-  children: string
+  children: ReactNode
   size?: Sizes
 }
 

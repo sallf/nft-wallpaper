@@ -79,10 +79,17 @@ export const Item = (props: Props) => {
   return (
     <div
       className={`relative z-0 ${sizes[activeLabel]} flex flex-shrink-0 flex-grow-0 transition-all duration-500`}
+      tabIndex={0}
       onMouseEnter={() => {
         setIsActive(true)
       }}
       onMouseLeave={() => {
+        setIsActive(false)
+      }}
+      onFocus={() => {
+        setIsActive(true)
+      }}
+      onBlur={() => {
         setIsActive(false)
       }}
       ref={setWrapper}
