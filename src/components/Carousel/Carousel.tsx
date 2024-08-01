@@ -16,10 +16,16 @@ export const Carousel = (props: Props) => {
   //  RENDER
   // ---------------------
   return (
-    <div className="mt-6 flex w-full gap-6 overflow-x-auto">
-      {wallpapers.map((wallpaper, i) => (
-        <Item key={i} wallpaper={wallpaper} activeLabel={activeLabel} />
-      ))}
+    <div className="relative">
+      <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-10 bg-gradient-to-r from-brand-midnight to-transparent" />
+      <div className="mt-6 w-full overflow-x-auto">
+        <div className="container mx-auto flex gap-6 px-4 md:px-2">
+          {wallpapers.map((wallpaper, i) => (
+            <Item key={i} wallpaper={wallpaper} activeLabel={activeLabel} />
+          ))}
+        </div>
+      </div>
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-10 bg-gradient-to-l from-brand-midnight to-transparent" />
     </div>
   )
 }
