@@ -56,7 +56,18 @@ export const Meta = (props: Props) => {
           />
         </div>
         <div className="flex w-full flex-col">
-          <Btn>Download</Btn>
+          <Btn
+            // download wallpaper.src on click
+            onClick={() => {
+              const a = document.createElement('a')
+              a.href = wallpaper.src
+              a.download = wallpaper.title
+              a.click()
+            }}
+          >
+            <span className="hidden md:inline">Download</span>
+            <span className="md:hidden">Save</span>
+          </Btn>
         </div>
       </div>
     </div>
